@@ -31,45 +31,39 @@
             label1 = new Label();
             label2 = new Label();
             label3 = new Label();
-            label4 = new Label();
-            comboBox1 = new ComboBox();
-            comboBox2 = new ComboBox();
+            cboInstructorUniversity = new ComboBox();
             label5 = new Label();
-            comboBox3 = new ComboBox();
+            cboRank = new ComboBox();
             label6 = new Label();
-            comboBox4 = new ComboBox();
+            cboInstructorName = new ComboBox();
             label7 = new Label();
-            comboBox7 = new ComboBox();
+            cboGender = new ComboBox();
             label10 = new Label();
-            comboBox8 = new ComboBox();
+            cboMajor = new ComboBox();
             label11 = new Label();
             label12 = new Label();
-            comboBox5 = new ComboBox();
+            cboDepartment = new ComboBox();
             label8 = new Label();
-            comboBox6 = new ComboBox();
+            cboCouseFaculty = new ComboBox();
             label9 = new Label();
-            comboBox9 = new ComboBox();
+            cboCourseUniversity = new ComboBox();
             label13 = new Label();
             label14 = new Label();
-            comboBox10 = new ComboBox();
+            cboSemester = new ComboBox();
             label15 = new Label();
-            comboBox11 = new ComboBox();
+            cboYear = new ComboBox();
             label16 = new Label();
             label17 = new Label();
-            button1 = new Button();
-            button2 = new Button();
+            btnApplyFilters = new Button();
+            btnClear = new Button();
             label18 = new Label();
-            dataGridView1 = new DataGridView();
+            dgvResults = new DataGridView();
+            cboStudentName = new ComboBox();
+            label4 = new Label();
+            cboInstructorFaculty = new ComboBox();
             label19 = new Label();
-            button3 = new Button();
-            button4 = new Button();
-            button5 = new Button();
-            button6 = new Button();
-            label20 = new Label();
-            button7 = new Button();
-            button8 = new Button();
-            label21 = new Label();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            lblStatus = new StatusStrip();
+            ((System.ComponentModel.ISupportInitialize)dgvResults).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -95,109 +89,92 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 10F);
-            label3.Location = new Point(12, 48);
+            label3.Location = new Point(12, 275);
             label3.Name = "label3";
             label3.Size = new Size(119, 19);
             label3.TabIndex = 2;
             label3.Text = "Filters - Instructor";
             // 
-            // label4
+            // cboInstructorUniversity
             // 
-            label4.AutoSize = true;
-            label4.Location = new Point(12, 80);
-            label4.Name = "label4";
-            label4.Size = new Size(59, 15);
-            label4.TabIndex = 3;
-            label4.Text = "University";
-            // 
-            // comboBox1
-            // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(86, 77);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(191, 23);
-            comboBox1.TabIndex = 4;
-            // 
-            // comboBox2
-            // 
-            comboBox2.FormattingEnabled = true;
-            comboBox2.Location = new Point(86, 106);
-            comboBox2.Name = "comboBox2";
-            comboBox2.Size = new Size(191, 23);
-            comboBox2.TabIndex = 6;
+            cboInstructorUniversity.FormattingEnabled = true;
+            cboInstructorUniversity.Location = new Point(127, 297);
+            cboInstructorUniversity.Name = "cboInstructorUniversity";
+            cboInstructorUniversity.Size = new Size(191, 23);
+            cboInstructorUniversity.TabIndex = 6;
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(12, 109);
+            label5.Location = new Point(12, 300);
             label5.Name = "label5";
-            label5.Size = new Size(45, 15);
+            label5.Size = new Size(59, 15);
             label5.TabIndex = 5;
-            label5.Text = "Faculty";
+            label5.Text = "University\n";
             // 
-            // comboBox3
+            // cboRank
             // 
-            comboBox3.FormattingEnabled = true;
-            comboBox3.Location = new Point(86, 135);
-            comboBox3.Name = "comboBox3";
-            comboBox3.Size = new Size(191, 23);
-            comboBox3.TabIndex = 8;
+            cboRank.FormattingEnabled = true;
+            cboRank.Location = new Point(127, 355);
+            cboRank.Name = "cboRank";
+            cboRank.Size = new Size(191, 23);
+            cboRank.TabIndex = 8;
             // 
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(12, 138);
+            label6.Location = new Point(12, 358);
             label6.Name = "label6";
             label6.Size = new Size(33, 15);
             label6.TabIndex = 7;
             label6.Text = "Rank";
             // 
-            // comboBox4
+            // cboInstructorName
             // 
-            comboBox4.FormattingEnabled = true;
-            comboBox4.Location = new Point(86, 164);
-            comboBox4.Name = "comboBox4";
-            comboBox4.Size = new Size(191, 23);
-            comboBox4.TabIndex = 10;
+            cboInstructorName.FormattingEnabled = true;
+            cboInstructorName.Location = new Point(127, 384);
+            cboInstructorName.Name = "cboInstructorName";
+            cboInstructorName.Size = new Size(191, 23);
+            cboInstructorName.TabIndex = 10;
             // 
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(12, 167);
+            label7.Location = new Point(12, 387);
             label7.Name = "label7";
-            label7.Size = new Size(59, 15);
+            label7.Size = new Size(93, 15);
             label7.TabIndex = 9;
-            label7.Text = "University";
+            label7.Text = "Instructor Name";
             // 
-            // comboBox7
+            // cboGender
             // 
-            comboBox7.FormattingEnabled = true;
-            comboBox7.Location = new Point(86, 248);
-            comboBox7.Name = "comboBox7";
-            comboBox7.Size = new Size(191, 23);
-            comboBox7.TabIndex = 15;
+            cboGender.FormattingEnabled = true;
+            cboGender.Location = new Point(127, 221);
+            cboGender.Name = "cboGender";
+            cboGender.Size = new Size(191, 23);
+            cboGender.TabIndex = 15;
             // 
             // label10
             // 
             label10.AutoSize = true;
-            label10.Location = new Point(12, 251);
+            label10.Location = new Point(12, 224);
             label10.Name = "label10";
             label10.Size = new Size(45, 15);
             label10.TabIndex = 14;
             label10.Text = "Gender";
             // 
-            // comboBox8
+            // cboMajor
             // 
-            comboBox8.FormattingEnabled = true;
-            comboBox8.Location = new Point(86, 219);
-            comboBox8.Name = "comboBox8";
-            comboBox8.Size = new Size(191, 23);
-            comboBox8.TabIndex = 13;
+            cboMajor.FormattingEnabled = true;
+            cboMajor.Location = new Point(127, 192);
+            cboMajor.Name = "cboMajor";
+            cboMajor.Size = new Size(191, 23);
+            cboMajor.TabIndex = 13;
             // 
             // label11
             // 
             label11.AutoSize = true;
-            label11.Location = new Point(12, 222);
+            label11.Location = new Point(12, 195);
             label11.Name = "label11";
             label11.Size = new Size(38, 15);
             label11.TabIndex = 12;
@@ -207,58 +184,58 @@
             // 
             label12.AutoSize = true;
             label12.Font = new Font("Segoe UI", 10F);
-            label12.Location = new Point(12, 190);
+            label12.Location = new Point(12, 163);
             label12.Name = "label12";
             label12.Size = new Size(107, 19);
             label12.TabIndex = 11;
             label12.Text = "Filters - Student";
             // 
-            // comboBox5
+            // cboDepartment
             // 
-            comboBox5.FormattingEnabled = true;
-            comboBox5.Location = new Point(86, 361);
-            comboBox5.Name = "comboBox5";
-            comboBox5.Size = new Size(191, 23);
-            comboBox5.TabIndex = 22;
+            cboDepartment.FormattingEnabled = true;
+            cboDepartment.Location = new Point(127, 135);
+            cboDepartment.Name = "cboDepartment";
+            cboDepartment.Size = new Size(191, 23);
+            cboDepartment.TabIndex = 22;
             // 
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(12, 364);
+            label8.Location = new Point(12, 138);
             label8.Name = "label8";
             label8.Size = new Size(70, 15);
             label8.TabIndex = 21;
             label8.Text = "Department";
             // 
-            // comboBox6
+            // cboCouseFaculty
             // 
-            comboBox6.FormattingEnabled = true;
-            comboBox6.Location = new Point(86, 332);
-            comboBox6.Name = "comboBox6";
-            comboBox6.Size = new Size(191, 23);
-            comboBox6.TabIndex = 20;
+            cboCouseFaculty.FormattingEnabled = true;
+            cboCouseFaculty.Location = new Point(127, 106);
+            cboCouseFaculty.Name = "cboCouseFaculty";
+            cboCouseFaculty.Size = new Size(191, 23);
+            cboCouseFaculty.TabIndex = 20;
             // 
             // label9
             // 
             label9.AutoSize = true;
-            label9.Location = new Point(12, 335);
+            label9.Location = new Point(12, 109);
             label9.Name = "label9";
             label9.Size = new Size(45, 15);
             label9.TabIndex = 19;
             label9.Text = "Faculty";
             // 
-            // comboBox9
+            // cboCourseUniversity
             // 
-            comboBox9.FormattingEnabled = true;
-            comboBox9.Location = new Point(86, 303);
-            comboBox9.Name = "comboBox9";
-            comboBox9.Size = new Size(191, 23);
-            comboBox9.TabIndex = 18;
+            cboCourseUniversity.FormattingEnabled = true;
+            cboCourseUniversity.Location = new Point(127, 77);
+            cboCourseUniversity.Name = "cboCourseUniversity";
+            cboCourseUniversity.Size = new Size(191, 23);
+            cboCourseUniversity.TabIndex = 18;
             // 
             // label13
             // 
             label13.AutoSize = true;
-            label13.Location = new Point(12, 306);
+            label13.Location = new Point(12, 80);
             label13.Name = "label13";
             label13.Size = new Size(59, 15);
             label13.TabIndex = 17;
@@ -268,41 +245,41 @@
             // 
             label14.AutoSize = true;
             label14.Font = new Font("Segoe UI", 10F);
-            label14.Location = new Point(12, 274);
+            label14.Location = new Point(12, 48);
             label14.Name = "label14";
             label14.Size = new Size(102, 19);
             label14.TabIndex = 16;
             label14.Text = "Filters - Course";
             // 
-            // comboBox10
+            // cboSemester
             // 
-            comboBox10.FormattingEnabled = true;
-            comboBox10.Location = new Point(86, 454);
-            comboBox10.Name = "comboBox10";
-            comboBox10.Size = new Size(191, 23);
-            comboBox10.TabIndex = 27;
+            cboSemester.FormattingEnabled = true;
+            cboSemester.Location = new Point(127, 469);
+            cboSemester.Name = "cboSemester";
+            cboSemester.Size = new Size(191, 23);
+            cboSemester.TabIndex = 27;
             // 
             // label15
             // 
             label15.AutoSize = true;
-            label15.Location = new Point(12, 457);
+            label15.Location = new Point(12, 472);
             label15.Name = "label15";
             label15.Size = new Size(55, 15);
             label15.TabIndex = 26;
             label15.Text = "Semester";
             // 
-            // comboBox11
+            // cboYear
             // 
-            comboBox11.FormattingEnabled = true;
-            comboBox11.Location = new Point(86, 425);
-            comboBox11.Name = "comboBox11";
-            comboBox11.Size = new Size(191, 23);
-            comboBox11.TabIndex = 25;
+            cboYear.FormattingEnabled = true;
+            cboYear.Location = new Point(127, 440);
+            cboYear.Name = "cboYear";
+            cboYear.Size = new Size(191, 23);
+            cboYear.TabIndex = 25;
             // 
             // label16
             // 
             label16.AutoSize = true;
-            label16.Location = new Point(12, 428);
+            label16.Location = new Point(12, 443);
             label16.Name = "label16";
             label16.Size = new Size(29, 15);
             label16.TabIndex = 24;
@@ -312,181 +289,136 @@
             // 
             label17.AutoSize = true;
             label17.Font = new Font("Segoe UI", 10F);
-            label17.Location = new Point(12, 396);
+            label17.Location = new Point(12, 411);
             label17.Name = "label17";
             label17.Size = new Size(88, 19);
             label17.TabIndex = 23;
             label17.Text = "Filters - Date";
             // 
-            // button1
+            // btnApplyFilters
             // 
-            button1.Location = new Point(202, 502);
-            button1.Name = "button1";
-            button1.Size = new Size(75, 23);
-            button1.TabIndex = 28;
-            button1.Text = "Apply";
-            button1.UseVisualStyleBackColor = true;
+            btnApplyFilters.Location = new Point(243, 502);
+            btnApplyFilters.Name = "btnApplyFilters";
+            btnApplyFilters.Size = new Size(75, 23);
+            btnApplyFilters.TabIndex = 28;
+            btnApplyFilters.Text = "Apply";
+            btnApplyFilters.UseVisualStyleBackColor = true;
+            btnApplyFilters.Click += btnApplyFilters_Click;
             // 
-            // button2
+            // btnClear
             // 
-            button2.Location = new Point(86, 502);
-            button2.Name = "button2";
-            button2.Size = new Size(75, 23);
-            button2.TabIndex = 29;
-            button2.Text = "Clear";
-            button2.UseVisualStyleBackColor = true;
+            btnClear.Location = new Point(127, 502);
+            btnClear.Name = "btnClear";
+            btnClear.Size = new Size(75, 23);
+            btnClear.TabIndex = 29;
+            btnClear.Text = "Clear";
+            btnClear.UseVisualStyleBackColor = true;
+            btnClear.Click += btnClear_Click;
             // 
             // label18
             // 
             label18.AutoSize = true;
             label18.Font = new Font("Segoe UI", 10F);
-            label18.Location = new Point(299, 48);
+            label18.Location = new Point(324, 48);
             label18.Name = "label18";
             label18.Size = new Size(52, 19);
             label18.TabIndex = 30;
             label18.Text = "Results";
             // 
-            // dataGridView1
+            // dgvResults
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(299, 70);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(460, 455);
-            dataGridView1.TabIndex = 31;
+            dgvResults.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvResults.Location = new Point(324, 70);
+            dgvResults.Name = "dgvResults";
+            dgvResults.Size = new Size(550, 455);
+            dgvResults.TabIndex = 31;
+            // 
+            // cboStudentName
+            // 
+            cboStudentName.FormattingEnabled = true;
+            cboStudentName.Location = new Point(127, 250);
+            cboStudentName.Name = "cboStudentName";
+            cboStudentName.Size = new Size(191, 23);
+            cboStudentName.TabIndex = 33;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(12, 253);
+            label4.Name = "label4";
+            label4.Size = new Size(83, 15);
+            label4.TabIndex = 32;
+            label4.Text = "Student Name";
+            // 
+            // cboInstructorFaculty
+            // 
+            cboInstructorFaculty.FormattingEnabled = true;
+            cboInstructorFaculty.Location = new Point(127, 326);
+            cboInstructorFaculty.Name = "cboInstructorFaculty";
+            cboInstructorFaculty.Size = new Size(191, 23);
+            cboInstructorFaculty.TabIndex = 35;
             // 
             // label19
             // 
             label19.AutoSize = true;
-            label19.Font = new Font("Segoe UI", 10F);
-            label19.Location = new Point(770, 70);
+            label19.Location = new Point(12, 329);
             label19.Name = "label19";
-            label19.Size = new Size(80, 19);
-            label19.TabIndex = 32;
-            label19.Text = "Course Drill";
+            label19.Size = new Size(45, 15);
+            label19.TabIndex = 34;
+            label19.Text = "Faculty\n";
             // 
-            // button3
+            // lblStatus
             // 
-            button3.Location = new Point(770, 101);
-            button3.Name = "button3";
-            button3.Size = new Size(75, 23);
-            button3.TabIndex = 33;
-            button3.Text = "Drill Down";
-            button3.UseVisualStyleBackColor = true;
-            // 
-            // button4
-            // 
-            button4.Location = new Point(862, 101);
-            button4.Name = "button4";
-            button4.Size = new Size(75, 23);
-            button4.TabIndex = 34;
-            button4.Text = "Roll Up";
-            button4.UseVisualStyleBackColor = true;
-            // 
-            // button5
-            // 
-            button5.Location = new Point(862, 188);
-            button5.Name = "button5";
-            button5.Size = new Size(75, 23);
-            button5.TabIndex = 37;
-            button5.Text = "Roll Up";
-            button5.UseVisualStyleBackColor = true;
-            // 
-            // button6
-            // 
-            button6.Location = new Point(770, 190);
-            button6.Name = "button6";
-            button6.Size = new Size(75, 23);
-            button6.TabIndex = 36;
-            button6.Text = "Drill Down";
-            button6.UseVisualStyleBackColor = true;
-            // 
-            // label20
-            // 
-            label20.AutoSize = true;
-            label20.Font = new Font("Segoe UI", 10F);
-            label20.Location = new Point(765, 163);
-            label20.Name = "label20";
-            label20.Size = new Size(66, 19);
-            label20.TabIndex = 35;
-            label20.Text = "Time Drill";
-            // 
-            // button7
-            // 
-            button7.Location = new Point(862, 274);
-            button7.Name = "button7";
-            button7.Size = new Size(75, 23);
-            button7.TabIndex = 40;
-            button7.Text = "Roll Up";
-            button7.UseVisualStyleBackColor = true;
-            // 
-            // button8
-            // 
-            button8.Location = new Point(770, 274);
-            button8.Name = "button8";
-            button8.Size = new Size(75, 23);
-            button8.TabIndex = 39;
-            button8.Text = "Drill Down";
-            button8.UseVisualStyleBackColor = true;
-            // 
-            // label21
-            // 
-            label21.AutoSize = true;
-            label21.Font = new Font("Segoe UI", 10F);
-            label21.Location = new Point(770, 247);
-            label21.Name = "label21";
-            label21.Size = new Size(97, 19);
-            label21.TabIndex = 38;
-            label21.Text = "Instructor Drill";
+            lblStatus.Location = new Point(0, 531);
+            lblStatus.Name = "lblStatus";
+            lblStatus.Size = new Size(886, 22);
+            lblStatus.TabIndex = 36;
+            lblStatus.Text = "statusStrip1";
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(969, 553);
-            Controls.Add(button7);
-            Controls.Add(button8);
-            Controls.Add(label21);
-            Controls.Add(button5);
-            Controls.Add(button6);
-            Controls.Add(label20);
-            Controls.Add(button4);
-            Controls.Add(button3);
+            ClientSize = new Size(886, 553);
+            Controls.Add(lblStatus);
+            Controls.Add(cboInstructorFaculty);
             Controls.Add(label19);
-            Controls.Add(dataGridView1);
+            Controls.Add(cboStudentName);
+            Controls.Add(label4);
+            Controls.Add(dgvResults);
             Controls.Add(label18);
-            Controls.Add(button2);
-            Controls.Add(button1);
-            Controls.Add(comboBox10);
+            Controls.Add(btnClear);
+            Controls.Add(btnApplyFilters);
+            Controls.Add(cboSemester);
             Controls.Add(label15);
-            Controls.Add(comboBox11);
+            Controls.Add(cboYear);
             Controls.Add(label16);
             Controls.Add(label17);
-            Controls.Add(comboBox5);
+            Controls.Add(cboDepartment);
             Controls.Add(label8);
-            Controls.Add(comboBox6);
+            Controls.Add(cboCouseFaculty);
             Controls.Add(label9);
-            Controls.Add(comboBox9);
+            Controls.Add(cboCourseUniversity);
             Controls.Add(label13);
             Controls.Add(label14);
-            Controls.Add(comboBox7);
+            Controls.Add(cboGender);
             Controls.Add(label10);
-            Controls.Add(comboBox8);
+            Controls.Add(cboMajor);
             Controls.Add(label11);
             Controls.Add(label12);
-            Controls.Add(comboBox4);
+            Controls.Add(cboInstructorName);
             Controls.Add(label7);
-            Controls.Add(comboBox3);
+            Controls.Add(cboRank);
             Controls.Add(label6);
-            Controls.Add(comboBox2);
+            Controls.Add(cboInstructorUniversity);
             Controls.Add(label5);
-            Controls.Add(comboBox1);
-            Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
             Name = "Form1";
             Text = "Form1";
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            Load += Form1_Load;
+            ((System.ComponentModel.ISupportInitialize)dgvResults).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -496,43 +428,38 @@
         private Label label1;
         private Label label2;
         private Label label3;
-        private Label label4;
-        private ComboBox comboBox1;
-        private ComboBox comboBox2;
+        private ComboBox cboInstructorUniversity;
         private Label label5;
-        private ComboBox comboBox3;
+        private ComboBox cboRank;
         private Label label6;
-        private ComboBox comboBox4;
+        private ComboBox cboInstructorName;
         private Label label7;
-        private ComboBox comboBox7;
+        private ComboBox cboGender;
         private Label label10;
-        private ComboBox comboBox8;
+        private ComboBox cboMajor;
         private Label label11;
         private Label label12;
-        private ComboBox comboBox5;
+        private ComboBox cboDepartment;
         private Label label8;
-        private ComboBox comboBox6;
+        private ComboBox cboCouseFaculty;
         private Label label9;
-        private ComboBox comboBox9;
+        private ComboBox cboCourseUniversity;
         private Label label13;
         private Label label14;
-        private ComboBox comboBox10;
+        private ComboBox cboSemester;
         private Label label15;
-        private ComboBox comboBox11;
+        private ComboBox cboYear;
         private Label label16;
         private Label label17;
-        private Button button1;
-        private Button button2;
+        private Button btnApplyFilters;
+        private Button btnClear;
         private Label label18;
-        private DataGridView dataGridView1;
+        private DataGridView dgvResults;
+        private ComboBox cboStudentName;
+        private Label label4;
+        private ComboBox cboInstructorFaculty;
         private Label label19;
-        private Button button3;
-        private Button button4;
-        private Button button5;
-        private Button button6;
-        private Label label20;
-        private Button button7;
-        private Button button8;
-        private Label label21;
+        private StatusStrip statusStrip1;
+        private StatusStrip lblStatus;
     }
 }

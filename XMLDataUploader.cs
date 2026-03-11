@@ -7,31 +7,26 @@ using Microsoft.Data.SqlClient;
 using System.IO;
 using System.Text.RegularExpressions;
 
-// ============================================================
-//  XMLDataUploader.cs - Upload educational data from XML
-// ============================================================
+
 public static class XMLDataUploader
 {
-    // --------------------------------------------------------
-    // Main Process - Upload XML file to database
-    // --------------------------------------------------------
     public static string ProcessXML(string xmlFilePath)
     {
-        // 1. Validate filename
+        // Validate filename
         if (!ValidateFileName(xmlFilePath))
-            throw new Exception("File must be named: description_YYYYMMDD.xml");
+            throw new Exception("File must be named: description_YYYY-MM-DD.xml");
 
-        // 2. Parse XML
+        // Parse XML
         XDocument doc = XDocument.Load(xmlFilePath);
 
-        // 3. Insert data (returns count of NEW entries only)
+        // Insert data (returns count of NEW entries only)
         int newStudents = InsertStudents(doc);
         int newCourses = InsertCourses(doc);
         int newInstructors = InsertInstructors(doc);
         int newDates = InsertDates(doc);
         int newOfferings = InsertCourseOfferings(doc);
 
-        // 4. Return summary of NEW entries identified and added
+        // Return summary of NEW entries identified and added
         return $"NEW Entries Added:\n" +
                $"Students: {newStudents}\n" +
                $"Courses: {newCourses}\n" +
@@ -40,9 +35,7 @@ public static class XMLDataUploader
                $"Course Offerings: {newOfferings}";
     }
 
-    /* --------------------------------------------------------
-    // Validate filename has date suffix
-    -------------------------------------------------------- */
+
     private static bool ValidateFileName(string filePath)
     {
         string fileName = Path.GetFileNameWithoutExtension(filePath);
@@ -52,7 +45,7 @@ public static class XMLDataUploader
     }
 
     /* --------------------------------------------------------
-    // Insert Students (skips duplicates automatically)
+    // Insert Students (skips duplicates)
     // Returns count of NEW students actually inserted
     -------------------------------------------------------- */
     private static int InsertStudents(XDocument doc)
@@ -96,7 +89,7 @@ public static class XMLDataUploader
     }
 
     // --------------------------------------------------------
-    // Insert Courses (skips duplicates automatically)
+    // Insert Courses (skips duplicates)
     // Returns count of NEW courses actually inserted
     // --------------------------------------------------------
     private static int InsertCourses(XDocument doc)
@@ -137,7 +130,7 @@ public static class XMLDataUploader
     }
 
     // --------------------------------------------------------
-    // Insert Instructors (skips duplicates automatically)
+    // Insert Instructors (skips duplicates)
     // Returns count of NEW instructors actually inserted
     // --------------------------------------------------------
     private static int InsertInstructors(XDocument doc)
@@ -178,7 +171,7 @@ public static class XMLDataUploader
     }
 
     // --------------------------------------------------------
-    // Insert Dates (skips duplicates automatically)
+    // Insert Dates (skips duplicates)
     // Returns count of NEW dates actually inserted
     // --------------------------------------------------------
     private static int InsertDates(XDocument doc)
@@ -224,7 +217,7 @@ public static class XMLDataUploader
     }
 
     // --------------------------------------------------------
-    // Insert Course Offerings (skips duplicates automatically)
+    // Insert Course Offerings (skips duplicates)
     // Returns count of NEW course offerings actually inserted
     // --------------------------------------------------------
     private static int InsertCourseOfferings(XDocument doc)

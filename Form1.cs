@@ -43,7 +43,7 @@ namespace SchoolDataWarehouse
         private void btnClear_Click(object sender, EventArgs e)
         {
             // Reset every ComboBox back to "All" (index 0)
-            ComboBox[] allFilters = 
+            ComboBox[] allFilters =
                 {
                 cboCourseUniversity, cboCouseFaculty, cboDepartment,
                 cboInstructorUniversity, cboInstructorFaculty, cboRank, cboInstructorName,
@@ -51,11 +51,11 @@ namespace SchoolDataWarehouse
                 cboYear, cboSemester
                 };
 
-                foreach (ComboBox cbo in allFilters)
-                    cbo.SelectedIndex = 0;
+            foreach (ComboBox cbo in allFilters)
+                cbo.SelectedIndex = 0;
 
-             // Re-run the query so the grid updates immediately
-             btnApplyFilters_Click(sender, e);
+            // Re-run the query so the grid updates immediately
+            btnApplyFilters_Click(sender, e);
         }
 
         // ============================================================
@@ -214,6 +214,43 @@ namespace SchoolDataWarehouse
 
             System.Data.DataTable results = DatabaseHelper.ExecuteQuery(query, paramList.ToArray());
             dgvResults.DataSource = results;
+        }
+
+        private void btnUploadXML_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog dialog = new OpenFileDialog())
+            {
+                dialog.Filter = "XML files (*.xml)|*.xml";
+                dialog.Title = "Select XML File";
+
+                if (dialog.ShowDialog() == DialogResult.OK)
+                {
+                    try
+                    {
+                        // Process the XML file - identifies and adds only new entries
+                        string result = XMLDataUploader.ProcessXML(dialog.FileName);
+
+                        // Show success message with NEW entries identified
+                        MessageBox.Show(
+                            $"Upload complete!\n\n{result}",
+                            "Success",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Information);
+
+                        // Refresh 
+                        btnClear_Click(sender, e);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(
+                            $"Upload Failed:\n\n{ex.Message}",
+                            "Error",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Error);
+                    }
+                }
+            }
+
         }
     }
 }

@@ -1,7 +1,14 @@
 USE UniWarehouse;
 GO
 
-INSERT INTO Date (Semester, Year) VALUES
+DELETE FROM [Date];
+DELETE FROM Course;
+DELETE FROM Instructor;
+DELETE FROM Student;
+DELETE FROM CourseOfferings;
+
+
+INSERT INTO [Date] (Semester, Year) VALUES
 ('Fall', 2022),
 ('Winter', 2023),
 ('Spring/Summer', 2023),
@@ -157,3 +164,4 @@ SELECT 'Course',                     COUNT(*)             FROM Course         UN
 SELECT 'Date',                       COUNT(*)             FROM [Date]           UNION ALL
 SELECT 'CourseOfferings',           COUNT(*)             FROM CourseOfferings;
 GO
+

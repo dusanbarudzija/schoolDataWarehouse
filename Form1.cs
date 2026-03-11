@@ -1,8 +1,5 @@
 namespace SchoolDataWarehouse
 {
-    // ============================================================
-    //  Form1.cs
-    // ============================================================
     public partial class Form1 : Form
     {
         public Form1()
@@ -10,9 +7,8 @@ namespace SchoolDataWarehouse
             InitializeComponent();
         }
 
-        // ============================================================
+
         //  FORM LOAD
-        // ============================================================
         private void Form1_Load(object sender, EventArgs e)
         {
             LoadAllComboBoxes();
@@ -58,9 +54,8 @@ namespace SchoolDataWarehouse
             btnApplyFilters_Click(sender, e);
         }
 
-        // ============================================================
+
         //  APPLY FILTERS BUTTON
-        // ============================================================
         private void btnApplyFilters_Click(object sender, EventArgs e)
         {
             string Get(ComboBox cbo) =>
@@ -89,9 +84,8 @@ namespace SchoolDataWarehouse
             var whereClauses = new System.Collections.Generic.List<string>();
             var paramList = new System.Collections.Generic.List<Microsoft.Data.SqlClient.SqlParameter>();
 
-            // --------------------------------------------------------
-            // SELECT + GROUP BY — each filter is fully independent now
-            // --------------------------------------------------------
+
+            // SELECT + GROUP BY
 
             // Course dimension
             if (courseUniversity != null)
@@ -165,9 +159,8 @@ namespace SchoolDataWarehouse
             selectCols.Add("COUNT(DISTINCT C.CourseID) AS [Total Courses]");
             selectCols.Add("COUNT(DISTINCT CO.StudentID) AS [Total Students Enrolled]");
 
-            // --------------------------------------------------------
+
             // WHERE clauses
-            // --------------------------------------------------------
             if (courseUniversity != null) { whereClauses.Add("C.University = @CUni"); paramList.Add(new Microsoft.Data.SqlClient.SqlParameter("@CUni", courseUniversity)); }
             if (courseFaculty != null) { whereClauses.Add("C.Faculty = @CFac"); paramList.Add(new Microsoft.Data.SqlClient.SqlParameter("@CFac", courseFaculty)); }
             if (department != null) { whereClauses.Add("C.Department = @Dept"); paramList.Add(new Microsoft.Data.SqlClient.SqlParameter("@Dept", department)); }
@@ -181,9 +174,7 @@ namespace SchoolDataWarehouse
             if (year != null) { whereClauses.Add("D.Year = @Year"); paramList.Add(new Microsoft.Data.SqlClient.SqlParameter("@Year", int.Parse(year))); }
             if (semester != null) { whereClauses.Add("D.Semester = @Semester"); paramList.Add(new Microsoft.Data.SqlClient.SqlParameter("@Semester", semester)); }
 
-            // --------------------------------------------------------
-            // DYNAMIC JOINS
-            // --------------------------------------------------------
+            // JOINS
             string joins = "JOIN Course C ON CO.CourseID = C.CourseID";
 
             if (needsInstructor)
@@ -197,9 +188,8 @@ namespace SchoolDataWarehouse
             if (needsDate)
                 joins += "\n            JOIN [Date] D ON CO.DateID = D.DateID";
 
-            // --------------------------------------------------------
+
             // ASSEMBLE AND RUN
-            // --------------------------------------------------------
             string where = whereClauses.Count > 0 ? "WHERE " + string.Join(" AND ", whereClauses) : "";
             string groupBy = groupByCols.Count > 0 ? "GROUP BY " + string.Join(", ", groupByCols) : "";
             string orderBy = groupByCols.Count > 0 ? "ORDER BY " + groupByCols[0] : "";
@@ -237,7 +227,8 @@ namespace SchoolDataWarehouse
                             MessageBoxButtons.OK,
                             MessageBoxIcon.Information);
 
-                        // Refresh 
+                        // Refresh
+                        LoadAllComboBoxes();
                         btnClear_Click(sender, e);
                     }
                     catch (Exception ex)

@@ -40,10 +40,11 @@ namespace SchoolDataWarehouse
             DatabaseHelper.LoadYears(cboYear);
             DatabaseHelper.LoadSemesters(cboSemester);
         }
+
         private void btnClear_Click(object sender, EventArgs e)
         {
             // Reset every ComboBox back to "All" (index 0)
-            ComboBox[] allFilters = 
+            ComboBox[] allFilters =
                 {
                 cboCourseUniversity, cboCouseFaculty, cboDepartment,
                 cboInstructorUniversity, cboInstructorFaculty, cboRank, cboInstructorName,
@@ -51,11 +52,67 @@ namespace SchoolDataWarehouse
                 cboYear, cboSemester
                 };
 
-                foreach (ComboBox cbo in allFilters)
-                    cbo.SelectedIndex = 0;
+            foreach (ComboBox cbo in allFilters)
+                cbo.SelectedIndex = 0;
 
-             // Re-run the query so the grid updates immediately
-             btnApplyFilters_Click(sender, e);
+            // Re-run the query so the grid updates immediately
+            btnApplyFilters_Click(sender, e);
+        }
+
+        // ============================================================
+        //  ETL BUTTON
+        // ============================================================
+        private void btnETL_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog dlg = new OpenFileDialog())
+            {
+                dlg.Title = "Select ETL XML File";
+                dlg.Filter = "XML files (*.xml)|*.xml";
+
+                if (dlg.ShowDialog() != DialogResult.OK) return;
+
+                string filePath = dlg.FileName;
+                string fileName = System.IO.Path.GetFileNameWithoutExtension(filePath);
+
+                // Validate filename ends with _YYYY-MM-DD
+                var datePattern = new System.Text.RegularExpressions.Regex(@"_(\d{4}-\d{2}-\d{2})$");
+
+                if (!datePattern.IsMatch(fileName))
+                {
+                    MessageBox.Show(
+                        "Invalid file name format.\n\n" +
+                        "XML files must end with a date suffix.\n" +
+                        "Example: data_2026-03-11.xml",
+                        "Invalid File Name",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning);
+                    return;
+                }
+
+                try
+                {
+                    var (inserted, skipped) = DatabaseHelper.RunETL(filePath);
+
+                    MessageBox.Show(
+                        $"ETL completed successfully!\n\n" +
+                        $"Records inserted: {inserted}\n" +
+                        $"Records skipped (already exist): {skipped}",
+                        "ETL Success",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Information);
+
+                    // Refresh all combo boxes so new data appears
+                    LoadAllComboBoxes();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(
+                        "ETL failed:\n\n" + ex.Message,
+                        "ETL Error",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+                }
+            }
         }
 
         // ============================================================
@@ -90,7 +147,7 @@ namespace SchoolDataWarehouse
             var paramList = new System.Collections.Generic.List<Microsoft.Data.SqlClient.SqlParameter>();
 
             // --------------------------------------------------------
-            // SELECT + GROUP BY — each filter is fully independent now
+            // SELECT + GROUP BY
             // --------------------------------------------------------
 
             // Course dimension

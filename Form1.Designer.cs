@@ -56,6 +56,7 @@
             label17 = new Label();
             btnApplyFilters = new Button();
             btnClear = new Button();
+            btnETL = new Button();
             label18 = new Label();
             dgvResults = new DataGridView();
             cboStudentName = new ComboBox();
@@ -315,6 +316,16 @@
             btnClear.UseVisualStyleBackColor = true;
             btnClear.Click += btnClear_Click;
             // 
+            // btnETL
+            // 
+            btnETL.Location = new Point(127, 531);
+            btnETL.Name = "btnETL";
+            btnETL.Size = new Size(191, 30);
+            btnETL.TabIndex = 37;
+            btnETL.Text = "Import XML (ETL)";
+            btnETL.UseVisualStyleBackColor = true;
+            btnETL.Click += btnETL_Click;
+            // 
             // label18
             // 
             label18.AutoSize = true;
@@ -369,7 +380,7 @@
             // 
             // lblStatus
             // 
-            lblStatus.Location = new Point(0, 531);
+            lblStatus.Location = new Point(0, 570);
             lblStatus.Name = "lblStatus";
             lblStatus.Size = new Size(886, 22);
             lblStatus.TabIndex = 36;
@@ -379,7 +390,8 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(886, 553);
+            ClientSize = new Size(886, 592);
+            Controls.Add(btnETL);
             Controls.Add(lblStatus);
             Controls.Add(cboInstructorFaculty);
             Controls.Add(label19);
@@ -453,6 +465,7 @@
         private Label label17;
         private Button btnApplyFilters;
         private Button btnClear;
+        private Button btnETL;
         private Label label18;
         private DataGridView dgvResults;
         private ComboBox cboStudentName;

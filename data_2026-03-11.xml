@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DataWarehouse>
+
+  <Instructors>
+    <Instructor>
+      <InstructorName>Dr. Sarah Johnson</InstructorName>
+      <Faculty>Science</Faculty>
+      <Rank>Professor</Rank>
+      <University>MacEwan University</University>
+    </Instructor>
+    <Instructor>
+      <InstructorName>Dr. James Lee</InstructorName>
+      <Faculty>Engineering</Faculty>
+      <Rank>Associate Professor</Rank>
+      <University>University of Alberta</University>
+    </Instructor>
+  </Instructors>
+
+  <Students>
+    <Student>
+      <StudentName>Alice Brown</StudentName>
+      <Major>Computer Science</Major>
+      <Gender>Female</Gender>
+    </Student>
+    <Student>
+      <StudentName>Bob Martin</StudentName>
+      <Major>Mathematics</Major>
+      <Gender>Male</Gender>
+    </Student>
+  </Students>
+
+  <Courses>
+    <Course>
+      <CourseName>Advanced Database Systems</CourseName>
+      <CourseCode>CMPT491</CourseCode>
+      <Department>Computing Science</Department>
+      <Faculty>Science</Faculty>
+      <University>MacEwan University</University>
+    </Course>
+    <Course>
+      <CourseName>Machine Learning Fundamentals</CourseName>
+      <CourseCode>CMPT450</CourseCode>
+      <Department>Computing Science</Department>
+      <Faculty>Science</Faculty>
+      <University>MacEwan University</University>
+    </Course>
+  </Courses>
+
+  <Dates>
+    <Date>
+      <Semester>Fall</Semester>
+      <Year>2026</Year>
+    </Date>
+    <Date>
+      <Semester>Winter</Semester>
+      <Year>2027</Year>
+    </Date>
+  </Dates>
+
+  <CourseOfferings>
+    <Offering>
+      <CourseName>Advanced Database Systems</CourseName>
+      <InstructorName>Dr. Sarah Johnson</InstructorName>
+      <StudentName>Alice Brown</StudentName>
+      <Semester>Fall</Semester>
+      <Year>2026</Year>
+    </Offering>
+    <Offering>
+      <CourseName>Machine Learning Fundamentals</CourseName>
+      <InstructorName>Dr. James Lee</InstructorName>
+      <StudentName>Bob Martin</StudentName>
+      <Semester>Winter</Semester>
+      <Year>2027</Year>
+    </Offering>
+  </CourseOfferings>
+
+</DataWarehouse>
